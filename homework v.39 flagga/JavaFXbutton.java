@@ -13,6 +13,7 @@ public class JavaFXbutton extends Application {
 	TextField tf = new TextField();
 	String nummer = "";
 	String nmrOrdning = "";
+	ArrayList<String> talOrdning = new ArrayList<String>();
 	
 	public static void main(String args[]) {
 		launch(args);
@@ -107,6 +108,20 @@ public class JavaFXbutton extends Application {
 					nmrOrdning += knp.getText();
 					tf.setText(nmrOrdning);
 				}
+			});
+		}else if(knp.getText().equals("clear")) {
+			knp.setOnAction(event -> {
+				nummer = "";
+				nmrOrdning = "";
+				tf.setText(nmrOrdning);
+			});
+		}else if(knp.getText().equals("+") || knp.getText().equals("-") || knp.getText().equals("x") || knp.getText().equals("/")) {
+			knp.setOnAction(event -> {
+				talOrdning.add(nummer);
+				talOrdning.add(knp.getText());
+				nummer = "";
+				nmrOrdning += (" " + knp.getText() + " ");
+				tf.setText(nmrOrdning);
 			});
 		}
 	}
