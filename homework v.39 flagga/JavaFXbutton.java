@@ -31,7 +31,10 @@ public class JavaFXbutton extends Application {
 		HBox top2 = new HBox();
 		top2.getChildren().addAll(tf, bc);
 
-		Button[] buttons1 = { new Button("1"), new Button("2"), new Button("3") };
+		Button[] buttons1 = { 
+				new Button("1"), 
+				new Button("2"), 
+				new Button("3") };
 		for (int i = 0; i < buttons1.length; i++) {
 			buttons1[i].setPrefSize(45, 35);
 			knappEvent(buttons1[i]);
@@ -40,7 +43,10 @@ public class JavaFXbutton extends Application {
 		HBox top = new HBox();
 		top.getChildren().addAll(buttons1);
 
-		Button[] buttons2 = { new Button("4"), new Button("5"), new Button("6"), };
+		Button[] buttons2 = { 
+				new Button("4"), 
+				new Button("5"), 
+				new Button("6"), };
 		for (int i = 0; i < buttons2.length; i++) {
 			buttons2[i].setPrefSize(45, 35);
 			knappEvent(buttons2[i]);
@@ -49,7 +55,10 @@ public class JavaFXbutton extends Application {
 		HBox mid = new HBox();
 		mid.getChildren().addAll(buttons2);
 
-		Button[] buttons3 = { new Button("7"), new Button("8"), new Button("9"), };
+		Button[] buttons3 = { 
+				new Button("7"), 
+				new Button("8"), 
+				new Button("9"), };
 		for (int i = 0; i < buttons3.length; i++) {
 			buttons3[i].setPrefSize(45, 35);
 			knappEvent(buttons3[i]);
@@ -58,7 +67,10 @@ public class JavaFXbutton extends Application {
 		HBox bot = new HBox();
 		bot.getChildren().addAll(buttons3);
 
-		Button[] buttons4 = { new Button(","), new Button("0"), new Button("="), };
+		Button[] buttons4 = { 
+				new Button(","), 
+				new Button("0"), 
+				new Button("="), };
 		for (int i = 0; i < buttons4.length; i++) {
 			buttons4[i].setPrefSize(45, 35);
 			knappEvent(buttons4[i]);
@@ -67,9 +79,14 @@ public class JavaFXbutton extends Application {
 		HBox bot2 = new HBox();
 		bot2.getChildren().addAll(buttons4);
 
-		Button[] buttons5 = { new Button("x"), new Button("+"), new Button("-"), new Button("/"), new Button("del") };
+		Button[] buttons5 = { 
+				new Button("x"), 
+				new Button("+"), 
+				new Button("-"), 
+				new Button("/"), 
+				new Button("del") };
 		for (int i = 0; i < buttons5.length; i++) {
-			buttons5[i].setPrefSize(45, 35);
+			buttons5[i].setPrefSize(45, 28);
 			knappEvent(buttons5[i]);
 		}
 
@@ -136,7 +153,7 @@ public class JavaFXbutton extends Application {
 
 		else if (knp.getText().equals("+") || // kollar om knapparna är +, -, x, eller /. lägger in nummer och knapptext
 												// i talordning.
-												// lägger nummer till ingenting och knapptext in i nummerordning.
+												// sätter nummer till ingenting och knapptext in i nummerordning.
 				knp.getText().equals("-") || knp.getText().equals("x") || knp.getText().equals("/")) { // sätter
 																										// textfield
 																										// till
@@ -196,7 +213,7 @@ public class JavaFXbutton extends Application {
 		return 0;
 	}
 
-	public void delete() { // kollar som nummer inte är tom om inte tar bort sista siffran från
+	public void delete() { // kollar om nummer inte är tom om inte tar bort sista siffran från
 							// nummerordning och nummer. sätter textfield till nummerordning
 		if (nummer.equals("")) {
 		} else {
