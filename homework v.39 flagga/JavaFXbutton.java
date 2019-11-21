@@ -83,7 +83,8 @@ public class JavaFXbutton extends Application {
 				new Button("x"), 
 				new Button("+"), 
 				new Button("-"), 
-				new Button("/") };
+				new Button("/"),
+				new Button("del")};
 		for (int i = 0; i < buttons5.length; i++) {
 			buttons5[i].setPrefSize(45, 35);
 			knappEvent(buttons5[i]);
@@ -135,6 +136,12 @@ public class JavaFXbutton extends Application {
 				tf.setText(nmrOrdning);
 			});
 		}
+		else if(knp.getText().equals("del")) {
+				knp.setOnAction(event -> {
+					delete();
+				});
+		}
+				
 		else if(knp.getText().equals("+") || 
 				knp.getText().equals("-") || 
 				knp.getText().equals("x") || 
@@ -142,7 +149,7 @@ public class JavaFXbutton extends Application {
 			knp.setOnAction(event -> {
 				talOrdning.add(nummer.replace(',', '.'));
 				talOrdning.add(knp.getText());
-				nummer = "";
+				nummer = ("");
 				nmrOrdning += (" " + knp.getText() + " ");
 				tf.setText(nmrOrdning);
 			});
@@ -192,6 +199,12 @@ public class JavaFXbutton extends Application {
 			return num1 / num2;
 		}
 		return 0;
+	}
+	
+	public void delete() {
+		nummer = nummer.substring(0, nummer.length() - 1);
+		nmrOrdning = nmrOrdning.substring(0, nmrOrdning.length() -1);
+		tf.setText(nmrOrdning);
 	}
 
 }
