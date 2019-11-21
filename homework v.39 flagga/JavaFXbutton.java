@@ -158,18 +158,15 @@ public class JavaFXbutton extends Application {
 			knp.setOnAction(event -> {
 				talOrdning.add(nummer.replace(',', '.'));
 				nummer = "";
-				double sum = 0;
+				double sum = Double.parseDouble(talOrdning.get(0));
 				for (int i = 0; i < talOrdning.size(); i++) {
-					if(i == 0) {
-						sum = Double.parseDouble(talOrdning.get(i));
-					}
 					if(isNummer(talOrdning.get(i)) && i != 0) {
 						sum = calc(sum, Double.parseDouble(talOrdning.get(i)), talOrdning.get(i - 1));
 					}
 				}
 				talOrdning.clear();
-				nummer = Double.toString(sum);
-				nmrOrdning = Double.toString(sum);
+				nummer = Double.toString(sum).replace('.', ',');
+				nmrOrdning = Double.toString(sum).replace('.', ',');
 				tf.setText(nmrOrdning);
 			});
 		}
@@ -202,9 +199,14 @@ public class JavaFXbutton extends Application {
 	}
 	
 	public void delete() {
-		nummer = nummer.substring(0, nummer.length() - 1);
-		nmrOrdning = nmrOrdning.substring(0, nmrOrdning.length() -1);
-		tf.setText(nmrOrdning);
+		if(nummer.equals("")) {
+			
+		}else {
+			nummer = nummer.substring(0, nummer.length() - 1);
+			nmrOrdning = nmrOrdning.substring(0, nmrOrdning.length() -1);
+			tf.setText(nmrOrdning);
+		}
+		
 	}
 
 }
